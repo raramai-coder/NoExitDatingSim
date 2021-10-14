@@ -6,6 +6,8 @@ using Cinemachine;
 public class MovePlayerToDialogue : MonoBehaviour
 {
     [SerializeField] GameObject player;
+    [SerializeField] GameObject InkManager;
+    [SerializeField] GameObject DialogueCanvas;
     [SerializeField] Transform waypoint;
     [SerializeField] private CinemachineVirtualCamera gameVC;
     [SerializeField] private CinemachineVirtualCamera dialogueVC;
@@ -28,6 +30,9 @@ public class MovePlayerToDialogue : MonoBehaviour
         player.transform.position = new Vector3(waypoint.transform.position.x, waypoint.transform.position.y, 0);
         //Debug.Log("mouse pressed");
         talking = true;
+        InkManager.SetActive(true);
+        DialogueCanvas.SetActive(true);
+        
     }
 
     private void OnMouseEnter()
@@ -45,7 +50,7 @@ public class MovePlayerToDialogue : MonoBehaviour
         else
         {
             dialogueVC.Priority = 0;
-            gameVC.Priority = 1;
+            gameVC.Priority = 1; 
         }
     }
 }
