@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class InkManagaer : MonoBehaviour
 {
@@ -50,6 +51,10 @@ public class InkManagaer : MonoBehaviour
         {
             DisplayChoices();
         }
+        else
+        {
+            SceneManager.LoadScene("White Room", LoadSceneMode.Single);
+        }
 
        /* string text = _story.Continue(); // gets next line
         text = text?.Trim(); // removes white space from text
@@ -58,7 +63,7 @@ public class InkManagaer : MonoBehaviour
 
     private void DisplayChoices()
     {
-        // checks if choices are already being displaye
+        // checks if choices are already being displayed
         if (_choiceButtonContainer.GetComponentsInChildren<Button>().Length > 0) return;
 
         for (int i = 0; i < _story.currentChoices.Count; i++) // iterates through all choices
