@@ -50,6 +50,8 @@ public class InkManagerWR : MonoBehaviour
         {
             //SceneManager.LoadScene("White Room", LoadSceneMode.Single);
             Debug.Log("Conversation Over");
+            //MovePlayerToDialogue.talking = false;
+            GameManager.talking = false;
         }
 
         /* string text = _story.Continue(); // gets next line

@@ -11,7 +11,7 @@ public class MovePlayerToDialogue : MonoBehaviour
     [SerializeField] Transform waypoint;
     [SerializeField] private CinemachineVirtualCamera gameVC;
     [SerializeField] private CinemachineVirtualCamera dialogueVC;
-    private bool talking = false;
+    public static bool talking = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +29,8 @@ public class MovePlayerToDialogue : MonoBehaviour
         //player.transform.position = waypoint.transform.position;
         player.transform.position = new Vector3(waypoint.transform.position.x, waypoint.transform.position.y, 0);
         //Debug.Log("mouse pressed");
-        talking = true;
+        //talking = true;
+        GameManager.talking = true;
         InkManager.SetActive(true);
         DialogueCanvas.SetActive(true);
         
@@ -42,7 +43,7 @@ public class MovePlayerToDialogue : MonoBehaviour
 
     private void Switchcamera()
     {
-        if (talking)
+        /*if (talking)
         {
             dialogueVC.Priority = 1;
             gameVC.Priority = 0;
@@ -51,6 +52,19 @@ public class MovePlayerToDialogue : MonoBehaviour
         {
             dialogueVC.Priority = 0;
             gameVC.Priority = 1; 
+        }*/
+
+        if (GameManager.talking)
+        {
+            dialogueVC.Priority = 1;
+            gameVC.Priority = 0;
+        }
+        else
+        {
+            dialogueVC.Priority = 0;
+            gameVC.Priority = 1;
+            InkManager.SetActive(false);
+            DialogueCanvas.SetActive(false);
         }
     }
 }
