@@ -24,7 +24,7 @@ public class InkManagerWR : MonoBehaviour
     private Button _choiceButtonPrefab;
 
     public int maximumFavor = 15;
-    public int currentFavor;
+    //public int currentFavor;
 
     [SerializeField] Image fill;
     // Start is called before the first frame update
@@ -44,8 +44,9 @@ public class InkManagerWR : MonoBehaviour
         if (GameManager.CharactersTalkedTo > 0)
         {
             _story.variablesState["career"] = GameManager.career;
+            
         }
-        
+
         DisplayNextLine();
     }
 
@@ -74,16 +75,34 @@ public class InkManagerWR : MonoBehaviour
         else
         {
             //SceneManager.LoadScene("White Room", LoadSceneMode.Single);
-            Debug.Log("Conversation Over");
+            //Debug.Log("Conversation Over");
             //MovePlayerToDialogue.talking = false;
             GameManager.talking = false;
            
             if (GameManager.CharactersTalkedTo == 0)
             {
                 GameManager.career = (string)_story.variablesState["career"];
+                switch (_story.variablesState["career"])
+                {
+                    case "trafficker":
+                        GameManager.partner = "Michael";
+                        break;
+                    case "creche":
+                        GameManager.partner = "Grace";
+                        break;
+                    case "devil":
+                        GameManager.partner = "Lucky";
+                        break;
+                }
             }
             
             GameManager.CharactersTalkedTo++;
+
+            if(GameManager.partner == (string)_story.variablesState["name"])
+            {
+                GameManager.partnerScore = (int)_story.variablesState["favor"];
+            }
+
         }
 
     

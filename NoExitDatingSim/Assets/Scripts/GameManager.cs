@@ -15,8 +15,10 @@ public class GameManager : MonoBehaviour
 
     public static int talker = 0;
     public static int CharactersTalkedTo = 0;
+    public static int partnerScore = 0;
 
     public static string career = "none";
+    public static string partner = "none";
     void Start()
     {
         
@@ -61,7 +63,8 @@ public class GameManager : MonoBehaviour
 
         if(CharactersTalkedTo == 3)
         {
-            Debug.Log("Talked to all");
+            //Debug.Log("Talked to all");
+           
             SceneManager.LoadScene("Selection", LoadSceneMode.Single);
         }
     }

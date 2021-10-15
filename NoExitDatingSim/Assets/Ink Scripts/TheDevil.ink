@@ -31,7 +31,7 @@ My desire is that you won't, but if you are sharp enough you will find the one w
 ->knot_gameRules
 
 ===knot_gameRules===
-Now I'd be wise if I were you. Hell can be an unbearable place with the wrong partner.
+Be sure to listen closely to what is said and to speak to every person in the room. And make sure to impress them, because even if you choose the right partner and they decline you, the pleasure will all be mine at your misery.
 
-Be sure to listen closely to what is said and to speak to every person in the room.
+Now I'd be wise if I were you. Hell can be an unbearable place with the wrong partner.
 ->END
