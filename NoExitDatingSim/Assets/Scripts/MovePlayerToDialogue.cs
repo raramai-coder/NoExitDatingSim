@@ -6,11 +6,12 @@ using Cinemachine;
 public class MovePlayerToDialogue : MonoBehaviour
 {
     [SerializeField] GameObject player;
+    [SerializeField] GameObject Character;
     [SerializeField] GameObject InkManager;
     [SerializeField] GameObject DialogueCanvas;
     [SerializeField] Transform waypoint;
-    [SerializeField] private CinemachineVirtualCamera gameVC;
-    [SerializeField] private CinemachineVirtualCamera dialogueVC;
+    //[SerializeField] private CinemachineVirtualCamera gameVC;
+    //[SerializeField] private CinemachineVirtualCamera dialogueVC;
     public static bool talking = false;
     // Start is called before the first frame update
     void Start()
@@ -21,7 +22,7 @@ public class MovePlayerToDialogue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Switchcamera();
+        TogglePanel();
     }
 
     private void OnMouseDown()
@@ -33,16 +34,37 @@ public class MovePlayerToDialogue : MonoBehaviour
         GameManager.talking = true;
         InkManager.SetActive(true);
         DialogueCanvas.SetActive(true);
-        
+
+        switch (Character.name)
+        {
+            case"Grace":
+                GameManager.talker = 1;
+                break;
+            case "Lucky":
+                GameManager.talker = 2;
+                break;
+            case "Michael":
+                GameManager.talker = 3;
+                break;
+            default:
+                GameManager.talker = 0;
+                break;
+        }
     }
 
     private void OnMouseEnter()
     {
-        Debug.Log("mouse entered");
+        //Debug.Log("mouse entered");
     }
 
-    private void Switchcamera()
+    private void TogglePanel()
     {
+        if (!GameManager.talking)
+        {
+            InkManager.SetActive(false);
+            DialogueCanvas.SetActive(false);
+        }
+
         /*if (talking)
         {
             dialogueVC.Priority = 1;
@@ -54,7 +76,7 @@ public class MovePlayerToDialogue : MonoBehaviour
             gameVC.Priority = 1; 
         }*/
 
-        if (GameManager.talking)
+        /*if (GameManager.talking)
         {
             dialogueVC.Priority = 1;
             gameVC.Priority = 0;
@@ -65,6 +87,6 @@ public class MovePlayerToDialogue : MonoBehaviour
             gameVC.Priority = 1;
             InkManager.SetActive(false);
             DialogueCanvas.SetActive(false);
-        }
+        }*/
     }
 }

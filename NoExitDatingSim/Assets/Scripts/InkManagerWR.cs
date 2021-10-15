@@ -45,6 +45,7 @@ public class InkManagerWR : MonoBehaviour
         else if (_story.currentChoices.Count > 0)
         {
             DisplayChoices();
+            _textField.text = "";
         }
         else
         {
