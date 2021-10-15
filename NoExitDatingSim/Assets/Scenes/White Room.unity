@@ -1501,7 +1501,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 037770e0421c1d64fad38a2d92956239, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _inkJsonAsset: {fileID: 4900000, guid: 72e2bd0a52919e94e86e17d99dad3575, type: 3}
+  _inkJsonAsset: {fileID: 4900000, guid: 53eb9ed4f3ca64647955bd1303eb6fd7, type: 3}
   _textField: {fileID: 1693808854}
   _nameField: {fileID: 780584410}
   _choiceButtonContainer: {fileID: 2025035441}

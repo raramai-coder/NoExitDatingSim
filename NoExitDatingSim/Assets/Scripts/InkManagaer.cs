@@ -13,6 +13,9 @@ public class InkManagaer : MonoBehaviour
 
     [SerializeField]
     private Text _textField;
+    [SerializeField]
+    private Text _nameField;
+
 
     [SerializeField]
     private GameObject _choiceButtonContainer;
@@ -46,10 +49,13 @@ public class InkManagaer : MonoBehaviour
             text = text?.Trim(); // removes white space from text
 
             _textField.text = text; // displays new text
+            _nameField.text = "The Devil";
         }
         else if (_story.currentChoices.Count > 0)
         {
             DisplayChoices();
+            _textField.text = "";
+            _nameField.text = "You";
         }
         else
         {

@@ -1,11 +1,11 @@
-The Devil
+
 ->start_knot
 === start_knot ==
 Welcome to my sanctuary, and depending on how you fare in the challenge to come, your happy or unhappy eternity.
 
-***Im terrified
+***[Im terrified]
  ->knot_terrfied 
-***Im excited
+***[Im excited]
  ->knot_excited
 
 ===knot_excited===
@@ -21,11 +21,11 @@ Behind this door lies 3 other beings waiting eternal damnation. One of them will
 
 The other two were selected because they are the most tortorous people you could possibly spend eternity with. Partnered with them, half of my job is done.
 
-***How will know the one?
+***[How will know the one?]
 My desire is that you won't, but if you are sharp enough you will find the one whose actions and desires most align with yours.
 ->knot_gameRules
 
-***Is this a game?
+***[Is this a game?]
 {knot_terrfied: That the rest of your (un)life depends on yes.}
 {knot_excited: First your excitemnent, now this? }
 ->knot_gameRules
