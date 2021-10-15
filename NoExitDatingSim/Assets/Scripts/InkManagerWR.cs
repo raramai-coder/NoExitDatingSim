@@ -15,6 +15,9 @@ public class InkManagerWR : MonoBehaviour
     private Text _textField;
 
     [SerializeField]
+    private Text _nameField;
+
+    [SerializeField]
     private GameObject _choiceButtonContainer;
 
     [SerializeField]
@@ -41,11 +44,13 @@ public class InkManagerWR : MonoBehaviour
             text = text?.Trim(); // removes white space from text
 
             _textField.text = text; // displays new text
+            _nameField.text = (string)_story.variablesState["name"];
         }
         else if (_story.currentChoices.Count > 0)
         {
             DisplayChoices();
             _textField.text = "";
+            _nameField.text = "You";
         }
         else
         {
@@ -56,9 +61,7 @@ public class InkManagerWR : MonoBehaviour
             GameManager.CharactersTalkedTo++;
         }
 
-        /* string text = _story.Continue(); // gets next line
-         text = text?.Trim(); // removes white space from text
-         _textField.text = text; // displays new text*/
+    
     }
 
     private void DisplayChoices()

@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/White Room.unity
     guid: 7cdc586b599969c4c978da22f2c29121
+  - enabled: 1
+    path: Assets/Scenes/Selection.unity
+    guid: 944cb6430014a4c4088dabbc0132945c
   m_configObjects: {}

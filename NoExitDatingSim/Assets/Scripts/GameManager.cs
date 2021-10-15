@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -59,6 +60,7 @@ public class GameManager : MonoBehaviour
         if(CharactersTalkedTo == 3)
         {
             Debug.Log("Talked to all");
+            SceneManager.LoadScene("Selection", LoadSceneMode.Single);
         }
     }
 }
