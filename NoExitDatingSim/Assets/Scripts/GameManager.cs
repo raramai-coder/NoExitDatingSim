@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private CinemachineVirtualCamera MichaelVC;
 
     public static int talker = 0;
+    public static int CharactersTalkedTo = 0;
     void Start()
     {
         
@@ -53,6 +54,11 @@ public class GameManager : MonoBehaviour
             gameVC.Priority = 1;
             //InkManager.SetActive(false);
             //DialogueCanvas.SetActive(false);
+        }
+
+        if(CharactersTalkedTo == 3)
+        {
+            Debug.Log("Talked to all");
         }
     }
 }

@@ -13,6 +13,8 @@ public class MovePlayerToDialogue : MonoBehaviour
     //[SerializeField] private CinemachineVirtualCamera gameVC;
     //[SerializeField] private CinemachineVirtualCamera dialogueVC;
     public static bool talking = false;
+
+   
     // Start is called before the first frame update
     void Start()
     {

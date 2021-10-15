@@ -53,6 +53,7 @@ public class InkManagerWR : MonoBehaviour
             Debug.Log("Conversation Over");
             //MovePlayerToDialogue.talking = false;
             GameManager.talking = false;
+            GameManager.CharactersTalkedTo++;
         }
 
         /* string text = _story.Continue(); // gets next line
