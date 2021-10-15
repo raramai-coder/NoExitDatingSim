@@ -23,10 +23,19 @@ public class InkManagerWR : MonoBehaviour
     [SerializeField]
     private Button _choiceButtonPrefab;
 
+    public int maximumFavor = 15;
+    public int currentFavor;
+
+    [SerializeField] Image fill;
     // Start is called before the first frame update
     void Start()
     {
         StartStory();
+    }
+
+    private void Update()
+    {
+        //DisplayFavor();
     }
 
     public void StartStory()
@@ -56,6 +65,11 @@ public class InkManagerWR : MonoBehaviour
             DisplayChoices();
             _textField.text = "";
             _nameField.text = "You";
+            Debug.Log(_story.variablesState["favor"]);
+            int currentFavor =(int) _story.variablesState["favor"];
+            float fillAmount = (float)currentFavor/ maximumFavor;
+            Debug.Log("fill: " + fillAmount);
+            //DisplayFavor();
         }
         else
         {
@@ -105,6 +119,7 @@ public class InkManagerWR : MonoBehaviour
         void OnClickChoiceButton(Choice choice)
         {
             _story.ChooseChoiceIndex(choice.index); // tells ink which choice was selected
+            DisplayFavor();
             RefreshChoiceView(); // removes choices from the screen
             DisplayNextLine();
 
@@ -120,5 +135,14 @@ public class InkManagerWR : MonoBehaviour
                 }
             }
         }
+    }
+
+    void DisplayFavor()
+    {
+        //float fillAmount = (float)_story.variablesState["favor"] / maximumFavor;
+
+        int currentFavor = (int)_story.variablesState["favor"];
+        float fillAmount = (float)currentFavor / maximumFavor;
+        fill.fillAmount = fillAmount;
     }
 }
