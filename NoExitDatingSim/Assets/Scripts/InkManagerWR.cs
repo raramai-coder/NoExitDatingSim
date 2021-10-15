@@ -32,6 +32,11 @@ public class InkManagerWR : MonoBehaviour
     public void StartStory()
     {
         _story = new Story(_inkJsonAsset.text);
+        if (GameManager.CharactersTalkedTo > 0)
+        {
+            _story.variablesState["career"] = GameManager.career;
+        }
+        
         DisplayNextLine();
     }
 
@@ -58,6 +63,12 @@ public class InkManagerWR : MonoBehaviour
             Debug.Log("Conversation Over");
             //MovePlayerToDialogue.talking = false;
             GameManager.talking = false;
+           
+            if (GameManager.CharactersTalkedTo == 0)
+            {
+                GameManager.career = (string)_story.variablesState["career"];
+            }
+            
             GameManager.CharactersTalkedTo++;
         }
 

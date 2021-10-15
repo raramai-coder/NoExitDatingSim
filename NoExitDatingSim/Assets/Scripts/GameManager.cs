@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
 
     public static int talker = 0;
     public static int CharactersTalkedTo = 0;
+
+    public static string career = "none";
     void Start()
     {
         

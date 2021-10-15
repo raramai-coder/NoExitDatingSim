@@ -1,3 +1,6 @@
+VAR career = "trafficker"
+VAR name = "Lucky"
+
 Lucky: One guy once said, “everyone is a mad scientist, and life is their lab” I can’t remember the rest.
 
 
