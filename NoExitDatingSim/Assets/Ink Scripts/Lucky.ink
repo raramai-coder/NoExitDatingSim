@@ -1,8 +1,12 @@
+
 VAR name = "Lucky"
 VAR career = "none"
 VAR favor = 5
+VAR mood = "positive"
+//EXTERNAL Emotions(mood)
 
-
+->start_knot
+===start_knot
 One guy once said, “everyone is a mad scientist, and life is their lab” I can’t remember the rest.
 
 ***[Uh, Hello to you too]
@@ -15,12 +19,14 @@ One guy once said, “everyone is a mad scientist, and life is their lab” I ca
 ***[What type of experiments did you do then?]
 ->knot_Work
 ***[I always knew that scientist are batshit crazy!]
+~mood = "positive" 
 ~favor +=1
 ->knot_Work
 ===knot_Work
 Aside from being a scientist, I was also an inventor. I invented machines of different uses. I carried out experiments on the human body – trying to add bionic features. Most of them failed, and as a result I sold the healthy organs to the black market. Only as a last resort.
 
 ***[That explains why you're here and not in heavan then.]
+~mood = "positive"
 ~favor+=1
 ->knot_RedirectedQue
 ***[Ah, that’s why you’re here!]
@@ -53,12 +59,14 @@ And what about you miss?
 
 ===knot_Prey
 may I ask what your prey was?
+~career = "trafficker"
 ->knot_PreyAnswer
 ===knot_PreyAnswer
 ***[Come on! I wouldn't be here if my prey consisted of animals.]
 ~favor+=2
 ->knot_para52
 ***[Humans duh!]
+~mood = "negative"
 ~favor-=1
 ->knot_para52
 
@@ -66,9 +74,12 @@ may I ask what your prey was?
 Ah of course. You see, you and I are similar. In the fact, that we used life to experiment with different things. You with your preys and me.. my inventions. 
 
 *** [Yes, I suppose you have a point there.] 
+~mood = "positive"
 ~favor+=2
+
 ->knot_para68
 *** [No, not even in your wildest dreams.]
+~mood = "negative"
 ~favor-=2
 ->knot_para71
 
@@ -82,10 +93,12 @@ You see, you and I, we were the ones who loved to live on the edge. I'm proud th
 
 ===knot_para72
 ***[Hmm, I might just be able tolerate you]
+~mood = "positive"
 ~favor+=3
 ->END
 
  ***[Is there a way to kill someoe again, but in hell?]
+ ~mood = "negative"
  ~favor-=2
  ->END
  
@@ -96,11 +109,13 @@ You see, you and I, we were the ones who loved to live on the edge. I'm proud th
 
 ===knot_para65
 Long term goal?. 
+~career = "devil"
 
 ***[who said dreams don't come true? I been playing Devil's advocate my entitre life, and I mean the true and ultimate advocate.]
 ->knot_LuckyResp
 
 ***[Basically, an experimentor like you!]
+~mood = "positive"
 ~favor+=2
 ->knot_LuckyResp
 
@@ -108,6 +123,7 @@ Long term goal?.
 Hmm, so you're like me huh? Tell me more.
 
 ***[Not as crazy as you, trying to make humanoids, that's just setting up for a failure, I mean, prosthetics arms and legs are enough.]
+~mood = "positive"
 ~favor+=1
 ->knot_para77
 *** [Okay, so I experimented on differentent ways on how to conjure the devil himself and how to make myself his right hand man, well... woman.]
@@ -130,6 +146,7 @@ Hmm, so you're like me huh? Tell me more.
 ->knot_para87
 
 ***[I did many things like, sacrificing virgins, hurting people, drinking animal blood and just following his steps. Showing him I'm worthy.] 
+~mood = "negative"
 ~favor+=1
 ->knot_para88
 
@@ -152,10 +169,12 @@ Hmm, so you're like me huh? Tell me more.
 
 ===knot_para101
 ***[Pass. With you? A deranged scientist? Who knows what might happen next, I might wake up missing an arm or an eye. No thanks]
+~mood = "negative"
 ~favor-=3
 ->knot_disappointed
 ***[You know what, not the most ideal scenario, however it isn't bad. At least we both have investigative minds, maybe he'll have some pity on us, and bring us some experiments.]
 ~favor+=2
+~mood = "positive"
 ->knot_Enthusiastic
 
 ===knot_disappointed
@@ -169,11 +188,14 @@ Fair enough,but in your case, beggars can't be choosers. He doesn't want you and
 
 ===knot_para123
 ***[ Haha, I see you have jokes, hmm? we'll have to see, there's no rush. ]
+~mood = "positive"
 ~favor+=2
 ->END
 
 ***[If you're going to say vile things like that, then you're going to end up alone. eww.]
+~mood = "negative"
 ~favor-=2
+
 ->END
 
 
@@ -181,11 +203,12 @@ Fair enough,but in your case, beggars can't be choosers. He doesn't want you and
 
 ===knot_para138
  So, what did you do to these teachers?
-
+~career = "creche"
  ***[Knowing that they were traumatizing other children too, I made it my mission to stalk as many as I could find and hurt them]
  ->knot_para139
  
  ***[Hehe, I made them disappear from the face of the earth. Just like that]
+ ~mood = "positive"
  ~favor+=1
  ->knot_para139
  
@@ -194,6 +217,7 @@ Fair enough,but in your case, beggars can't be choosers. He doesn't want you and
 ->knot_para140
 ===knot_para140
 ***[No, I'm not]
+~mood = "negative"
 ~favor-=1
 ->knot_para141
 ***[I guess I am]
@@ -208,6 +232,7 @@ Fair enough,but in your case, beggars can't be choosers. He doesn't want you and
 *** [Well, these are the consequences I suppose.]
 ->knot_Nonsense
 ***[Yeah, live by the sword, die by the sword.]
+~mood = "positive"
 ~favor+=2
 ->knot_YouSaid
 
@@ -220,9 +245,11 @@ Fair enough,but in your case, beggars can't be choosers. He doesn't want you and
 
 ===knot_YesNO
 ***[Yeah, sure, what else can I do to pass time?]
+~mood = "positive"
 ~favor+=2
 ->knot_yesSpirit
 ***[Nope, I’m not really one for games.]
+~mood = "negative"
 ~favor-=1
 ->knot_gameChoice
 
@@ -234,9 +261,12 @@ Fair enough,but in your case, beggars can't be choosers. He doesn't want you and
 == knot_gameChoice
  Well, you can either leave or decide to play. The choice is yours.
 *** [This sucks anyway, you're boring. I'm leaving.]
+~mood = "negative"
 ~favor-=3
 ->END
 *** [Fine, fine. I can't resist a social experiemnt. I'm all ears.]
+~mood = "positive"
+~favor +=3
 ->knot_yesSpirit
 
 ===knot_ScaleChoices
@@ -263,6 +293,7 @@ Fair enough,but in your case, beggars can't be choosers. He doesn't want you and
  Do you know what the point of the experiment is?
 
 ***[Obviously not, but I’m sure you’re going to share.]
+~mood = "positive"
 ~favor+=2
 ->knot_share
 ***[I don't know, you're just wasting time I guess?]
@@ -273,20 +304,24 @@ Fair enough,but in your case, beggars can't be choosers. He doesn't want you and
  Hehe, well you see, there wasn’t really exactly a point. It was just me finding out for myself, if the person you end up will either be glad, they ended up with someone who has some sort of social skills or a person who will make hell even worse. 
 
 ***[Huh, interesting!]
+~mood = "positive"
 ~favor+=1
 ->knot_Applies
 
 ***[You're so lame, wow.]
+~mood = "negative"
 ~favor-=1
 ->knot_Applies
 
 ===knot_Applies
  How do you think that experiment applies to me?
 ****[Well, I feel like you can carry on a conversation with your unending questions, so it won’t be a boring time the entire eternity.]
+~mood = "positive"
 ~favor+=3
 ->knot_positive2
 
 ***[You’re annoying. I don’t think I’d want to carry on doing experiments or answering questions forever.]
+~mood = "negative"
 ~favor-=3
 ->knot_tragedy
 

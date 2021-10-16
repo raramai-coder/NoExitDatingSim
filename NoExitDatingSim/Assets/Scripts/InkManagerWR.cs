@@ -41,11 +41,17 @@ public class InkManagerWR : MonoBehaviour
     public void StartStory()
     {
         _story = new Story(_inkJsonAsset.text);
-        if (GameManager.CharactersTalkedTo > 0)
+        //Debug.Log("Characters talked to: " +GameManager.CharactersTalkedTo);
+        if (GameManager.career == "none")
+        {
+            
+
+        }
+        else
         {
             _story.variablesState["career"] = GameManager.career;
-            
         }
+        Debug.Log("at start: "+_story.variablesState["career"]);
 
         DisplayNextLine();
     }
@@ -66,10 +72,10 @@ public class InkManagerWR : MonoBehaviour
             DisplayChoices();
             _textField.text = "";
             _nameField.text = "You";
-            Debug.Log(_story.variablesState["favor"]);
+            //Debug.Log(_story.variablesState["favor"]);
             int currentFavor =(int) _story.variablesState["favor"];
             float fillAmount = (float)currentFavor/ maximumFavor;
-            Debug.Log("fill: " + fillAmount);
+            //Debug.Log("fill: " + fillAmount);
             //DisplayFavor();
         }
         else
@@ -95,7 +101,7 @@ public class InkManagerWR : MonoBehaviour
                         break;
                 }
             }
-            
+            //Debug.Log("at end: " + _story.variablesState["career"]);
             GameManager.CharactersTalkedTo++;
 
             if(GameManager.partner == (string)_story.variablesState["name"])

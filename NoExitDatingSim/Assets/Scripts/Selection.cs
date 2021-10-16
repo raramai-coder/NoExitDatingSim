@@ -8,15 +8,15 @@ public class Selection : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] Sprite fire;
     [SerializeField] Sprite black;
-    [SerializeField] GameObject character;
+    ///[SerializeField] GameObject character;
 
-    public static string characterChosen;
+    [SerializeField] string characterChosen;
     //public static string partner;
 
 
     void Start()
     {
-        characterChosen = character.name;
+        //characterChosen = character.name;
     }
 
     // Update is called once per frame
@@ -36,7 +36,7 @@ public class Selection : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        
+        Debug.Log(characterChosen + " " + GameManager.partner); 
 
         if(characterChosen == GameManager.partner)
         {

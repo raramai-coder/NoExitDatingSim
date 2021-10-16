@@ -31,12 +31,14 @@ public class InkManagerSelection : MonoBehaviour
         {
             _story.ChoosePathString(winState);
             DisplayNextLine();
+            //selected = false;
         }
     }
 
     private void StartStory()
     {
         _story = new Story(_inkJsonAsset.text);
+        _story.variablesState["partner"] = GameManager.partner;
         DisplayNextLine();
     }
 

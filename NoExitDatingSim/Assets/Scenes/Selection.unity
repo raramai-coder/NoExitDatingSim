@@ -222,7 +222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fire: {fileID: 21300000, guid: 0ccd19388fd537040b2b7e91930f22c4, type: 3}
   black: {fileID: 21300000, guid: 541c7d16a5073ff418ea4b2bfd127c33, type: 3}
-  character: {fileID: 52464099}
+  characterChosen: Grace
 --- !u!61 &52464103
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -431,7 +431,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fire: {fileID: 21300000, guid: 0ccd19388fd537040b2b7e91930f22c4, type: 3}
   black: {fileID: 21300000, guid: 541c7d16a5073ff418ea4b2bfd127c33, type: 3}
-  character: {fileID: 499330077}
+  characterChosen: Michael
 --- !u!61 &499330081
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1227,7 +1227,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fire: {fileID: 21300000, guid: 0ccd19388fd537040b2b7e91930f22c4, type: 3}
   black: {fileID: 21300000, guid: 541c7d16a5073ff418ea4b2bfd127c33, type: 3}
-  character: {fileID: 1502263628}
+  characterChosen: Lucky
 --- !u!1 &1591869575
 GameObject:
   m_ObjectHideFlags: 0

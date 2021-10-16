@@ -2,6 +2,7 @@
 VAR name = "Grace"
 VAR career = "none"
 VAR favor = 5
+VAR mood = "positive" 
 
  ->start_knot
 
@@ -11,6 +12,7 @@ Grace, pleasure to meet you. And you are?
 ~favor+=1
 ->knot_realName
 ***[Tell her a fake name]
+~mood = "negative"
 ~favor-=1
 ->knot_fakeName
 
@@ -36,9 +38,11 @@ I can tell you're lying. I hate liars.
 {knot_realName: I do not appreciate tactlessness. Let's be polite.}
 {knot_fakeName: First you lie to me, now you come to me in this most unmannered and uncivilised way. }
 ***[Apologise]
+~mood = "positive"
 ~favor+=1
 ->knot_apologise
 ***[I don't see the point in tiptoeing around such important facts.]
+~mood = "negative"
 ~favor-=1
 ->knot_facts
 
@@ -54,9 +58,11 @@ And besides, I've had to learn patience in my line of work.
 ===knot_facts
 Then I see you and I will grate each other to no end.
 ***[Then we can end this converation]
+~mood = "negative"
 ~favor-=1
 ->knot_endConversation
 ***[ we can find a way to get over it, we might still be right for each regardless of that small fact.]
+~mood = "positive"
 ~favor+=1
 ->knot_getOverIt
 
@@ -71,6 +77,7 @@ It might seem like a lot but when you spend your days surrouded by rowdy toddler
 ***[Why were you surrounded by toddlers?]
 ->knot_lineofWork
 ***[You sound a bit uptight.]
+~mood = "negative"
 ~favor-=1
 ->knot_uptight
 
@@ -78,6 +85,7 @@ It might seem like a lot but when you spend your days surrouded by rowdy toddler
 //must give player harsh consequences
 Really? Even the way you end conversation crass and lowly.
 ***[Goodbye]
+~mood = "negative"
 ~favor-=1
 ->END
 ***[You think so highly of yourself]
@@ -145,6 +153,7 @@ And in any case I have every right to think highly of myself (or uptight as you 
 
 ===knot_contractor
 What kind of contracting?
+~career = "trafficker"
 ***[I'd get people for people]
 ~favor+=1
 ->knot_peopleForPeople
@@ -153,6 +162,7 @@ What kind of contracting?
 
 ===knot_sprirtualExperimenter
 What could that possibly mean?
+~career = "devil"
 ***[It means I was obessed with the Devil and would do any ritual to summon him.]
 ~favor+=1
 ->knot_obsessedWithDevil
@@ -161,6 +171,7 @@ What could that possibly mean?
 
 ===knot_obsessedWithCrecheTeachers
 You must have not gotten a good education to end up in that position.
+~career = "creche"
 ***[I had a terrible start to my academic career.]
 ->knot_terribleStart
 ***[Do you really want to know?]
@@ -171,6 +182,7 @@ Of course not! My work with the children was noble, I would even say a necessary
 **[I've never eard anyone refer to teaching children as 'a necessary evil'.]
 ->knot_necessaryEvil
 **[Then I can't see why you would be here?]
+~mood = "positive"
 ~favor+=1
 ->knot_whyHere
 
@@ -178,6 +190,7 @@ Of course not! My work with the children was noble, I would even say a necessary
 {knot_reallyWantToKnow: I can put two and two together.}
 Sounds like you were a pimp, for lack of a better word.
 **[Given what I actually did being a pimp wouldn't have landed me here. Where I came from I had no real chance. No real chance to get an education, get a job in one of those fancy offices, least of all build an empire.  But I did that- I built an empire.]
+~mood = "positive"
 ~favor+=1
 ->knot_traffickingExplanation
 **[I wasn't. Where I came from I had no real chance. No real chance to get an education, get a job in one of those fancy offices, least of all build an empire. But I did that- I built an empire.] 
@@ -208,13 +221,20 @@ I have none. And I don't think anyone should have regrets anyway.If what you did
 {knot_didntAppreciateDevotion: I would say the hard work I did in crafting only the cream of children. You see,}
 Not all children are blessed with a bright mind and proclivity for education. Sometimes you have to shape them with a hard fist and a rod. But its all worth it when you see the marvels they grow into. And if they can't shaped, why let people go on wasting resources on them.
 {knot_peopleForPeople: And in your case you know better than anyone that there are people out there in dire need of resources, why waste them?}
-**[That's awful. People trusted you with their children.]
-~favor-=1
-->knot_trustedWithChildren
+//**[That's awful. People trusted you with their children.] 
+//~mood = "negative"
+//~favor-=1
+//->knot_trustedWithChildren
 **[Hmmm, maybe we are meant for each other after all.] 
+~mood = "positive"
 ~favor+=1
 {knot_peopleForPeople: Sometimes I got children for my clients.->knot_extentofTrafficking}
 {knot_terribleStart: I had a terrible creche teacher. ->knot_menace}
+**[That's awful. People trusted you with their children.] 
+~mood = "negative"
+~favor-=1
+->knot_trustedWithChildren
+->DONE
 
 
 ==knot_extentofTrafficking
@@ -227,9 +247,10 @@ How did you get all these people?
 {knot_Regrets: Curiously, even with all your limits you still have regrets. How did you get all these people?}
 ->knot_luredVictims
 
-==knot_trustedWithChildren
+==knot_trustedWithChildren==
 {knot_peopleForPeople: Oh, you think you're better than me? Why don't you tell the truth about your 'getting people for people'. {knot_fakeName: And don't try lying again, because I know exactly what you mean by 'getting people for people', ~favor-=1} ->knot_extentofTrafficking}
 {knot_obsessedWithDevil: I won't be judged with someone who was obsessed with the Devil. At least what I did was to help other people.  ->knot_extentOfSummons}
+{knot_obsessedWithCrecheTeachers: I won't be judged with someone who barely survived school.  ->knot_menace}
 
 
 
@@ -253,6 +274,7 @@ Trust me, there's very little you could say that could scare me. I'm stronger th
 {knot_reallyWantToKnow: I'm guessing you did rituals to try sumon the Devil.Did you ever succeed before you died?}
 {not knot_reallyWantToKnow: It seems, congratulations are in order then. Did you ever succeed before you died? ~favor+=1}
 **[No, and I don't think he even appreciated my devotion.]
+~mood = "negative"
 ->knot_didntAppreciateDevotion
 **[I wish. But now that I'm here I'll try to make the best of it.]
 ~favor+=1
@@ -265,6 +287,7 @@ Heck, the fact that I'm here speaks to that.
 ~favor+=1
 ->knot_explainingGraceActions1
 **[But I won't be underapreciated for long, I have a plan.]
+~mood = "positive"
 ~favor+=1
 ->knot_explainGamePlan
 
@@ -281,11 +304,13 @@ I ...... am speechless. Why would you do such a pointless thing?
 **[I can't explain even if I tried. Why did you do all those horrible things to those kids? I bet you couldn't explain it either.]
 ->knot_bye
 **[Because I wanted to and I didnt give a damn. Also I enjoyed going against the stream.]
+~mood = "positive"
 ~favor+=1
 ->knot_bye
 
 ==knot_amused
 I'm quite amused by you. And I think you would make an interesting partner for eternity.
+~mood = "positive"
 ->knot_bye
 
 ==knot_explainGamePlan
@@ -310,6 +335,7 @@ How do you know the Devil's pronouns are They/Them?
 ~favor-=1
 ->knot_menace
 **[I'm more interested in how you 'helped' your pupils]
+~mood = "positive"
 ~favor+=1
 ->knot_explainingGraceActions1
 
@@ -340,6 +366,7 @@ Why?
 ~favor-=1
 ->knot_wantTo
 **[You see I hurt people like you, creche teachers. Stalked you, found out your routine and then discovered the best way to torture you psychologically. Be it by harming your loved or unraveling your life in its seams. And finally, I would end your life.]
+~mood = "negative"
 ~favor-=1
 ->knot_wantTo
 
@@ -348,6 +375,7 @@ I would everything in my power to help you. Any sort of disciplinary action that
 **[I had a job actually of great use. But I think you might find it ironic.]
 ->knot_obsessCrecheExtent
 **[Too bad we're in hell and can't die anymore. But if I could...]
+~mood = "negative"
 ~favor-=1
 ->knot_wantTo
 
@@ -374,6 +402,7 @@ I don't believe I should be here. But nonetheless I did what I did.
 Well I believe people whose life purposes were aligned would be a perfect match in the afterlife.
 Your life's mission doesn't have to have been similar to mine, but maybe as noble as mine is necessary.
 **[What was your noble profession?]
+~mood = "positive"
 ~favor+=1
 ->knot_lineofWork
 **[That seems too obvious]

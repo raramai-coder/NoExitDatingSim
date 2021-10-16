@@ -56,6 +56,7 @@ Michael: Yeah, yeah. I get that a lot. Anyway, I’ve been waiting to hear what 
 }
 
 ===knot_humanTrafficking
+~career = "trafficker"
 Oh we have a Trafficker amongst us today. Great, let's get the party started? Why don't you tell me more? 
 ***[I don't think I want to. I'm good.]
 ~mood = "negative"
@@ -192,7 +193,7 @@ Ah, she might have a soul afterall! There is something out there worth believing
 
 ===knot_para100
 Wait you actually wanted to conjure the devil?
-
+~career = "devil"
 ***[Yes, Landing up here, was my goal anyway. Some may say I been obsessed with the devil, but I just say I was fascinated by his existence.]
 ->knot_para101
 
@@ -268,6 +269,7 @@ Oh goodie, I'm glad the feeling is mutual then. Imagine not being wanted by the 
 
 
  ===knot_StalkerVibes
+ ~career = "creche"
   Woah, what did creche teachers ever do to you?
   
   ***[I blame that wretched creche teacher of mine. She had traumatized me so much, I developed such a strong hatred for all creche teachers.]
